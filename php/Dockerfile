@@ -10,6 +10,8 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
             libmcrypt-dev \
             git \
             unzip \
+            --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
@@ -17,8 +19,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) mysqli \
     && pecl install -o -f redis \
-    && rm -rf /tmp/pear \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /tmp/pear
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
     && curl -sS https://getcomposer.org/installer | php \
