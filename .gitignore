@@ -1,0 +1,5 @@
+nginx/conf.d
+!nginx/conf.d/virtual-host.conf
+www/
+!www/index.php
+nginx/logs
