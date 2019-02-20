@@ -17,6 +17,7 @@ services:
   php:
     build: ./php
     container_name: php
+    working_dir: /data/www
     ports:
       - "9000:9000"
     volumes:
