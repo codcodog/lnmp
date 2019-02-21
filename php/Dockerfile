@@ -1,6 +1,6 @@
 FROM php:7.1.18-fpm
 
-LABEL MAINTAINER="codcodog"
+LABEL maintainer "codcodog codcodog@gmail.com"
 
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
     && apt-get update && apt-get install -y \
@@ -18,6 +18,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
     && docker-php-ext-install -j$(nproc) mcrypt \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) mysqli \
+    && docker-php-ext-install -j$(nproc) bcmath \
     && pecl install -o -f redis \
     && rm -rf /tmp/pear
 
