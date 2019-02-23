@@ -15,7 +15,10 @@ services:
     networks:
       - net-php
   php:
-    build: ./php
+    build:
+      context: ./php
+      args:
+        - PHP_VERSION=7.1.18 # 指定 PHP 版本
     container_name: php
     working_dir: /data/www
     ports:

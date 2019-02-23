@@ -1,4 +1,5 @@
-FROM php:7.1.18-fpm
+ARG PHP_VERSION
+FROM php:${PHP_VERSION}-fpm
 
 LABEL maintainer "codcodog codcodog@gmail.com"
 

@@ -18,9 +18,10 @@ $ docker-compose up -d
 
 ### 说明
 #### 版本
-若需要指定 `PHP` 的某个版本，修改 `php` 目录下的 `Dockerfile`, `Nginx` 同理.
+若需要指定 `PHP` 的某个版本，修改 `docker-compose.yml`.
 ```
-FROM php:7.1.18-fpm
+args:
+  - PHP_VERSION=7.1.18 # 指定 PHP 版本
 ```
 > 修改之后需要重新构建镜像
 
