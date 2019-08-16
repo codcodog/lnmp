@@ -26,6 +26,6 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 RUN ["/bin/bash", "-c", "set -o pipefail \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && composer config -g repo.packagist composer https://packagist.phpcomposer.com"]
+    && composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/"]
 
 CMD ["php-fpm"]
